@@ -25,8 +25,11 @@ Resolution order when guidance seems ambiguous or conflicting:
    Snap any requested odd value to the nearest token.
 2. **One accent.** `--accent` is used for emphasis, interactive affordances, and data highlights
    only. Never as a background wash for large areas. Never compete with photography.
-3. **Whitespace is a feature.** Section padding is generous (see `--space-section`). If a section
-   feels empty, that is correct. Do not fill it with decoration — fewer, larger elements.
+3. **Whitespace is a feature — but never a void.** Section padding is generous (see
+   `--space-section`); if a section feels empty, that is correct. Exception: the hero viewport
+   must be SET IN MATERIAL — full-bleed media, or the instrument field (`--wash` + `--grid`
+   hairlines per tokens.md §1). A flat untextured background on the hero is a violation.
+   Do not fill other sections with decoration — fewer, larger elements.
 4. **One idea per section.** A section states one claim in one headline, optionally with one
    supporting block (image, table, or paragraph group). Never combine three pitches in one band.
 5. **No decoration without information.** No soft rounded cards with drop shadows, no stock

@@ -21,7 +21,15 @@ html, body { scrollbar-width: thin; }
   min-height: 100svh;
   padding: var(--space-section) var(--gutter) var(--space-8);
   display: flex; flex-direction: column; justify-content: flex-end;
-  background: linear-gradient(to top, var(--overlay), transparent 60%), var(--wash);
+  background: var(--wash), var(--bg);
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--grid);
+  -webkit-mask-image: var(--field-mask); mask-image: var(--field-mask);
+  pointer-events: none;
 }
 .hero .display { max-width: 14ch; }
 .hero .lead { margin-top: var(--space-4); }

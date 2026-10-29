@@ -60,6 +60,7 @@ borders, you've left the system.
 |---|---|---|
 | `--glass` | 60% translucent bg + hairline bottom, **no blur** | Fixed nav, sticky bars. |
 | `--wash` | `radial-gradient(120% 70% at 70% 15%, #1a1a14, transparent)` | Dark-hero background depth (subtle, ≤ 8% perceived lightness). |
+| `--grid` | `repeating-linear-gradient` hairlines every 96px, inside a fading mask (top-visible → 60% faded) | The **instrument field**: hero-substrate texture. Marks the engineered surface without photos. Always paired with `--wash`. |
 | `--sheen` | `linear-gradient(180deg, #fff, #a8a8a4)` on `background-clip: text` | Display type "metal" moments. Max one per page, light theme only. |
 | `--media-scrim` | `linear-gradient(to top, var(--overlay), transparent 60%)` | Text over photo/video. |
 

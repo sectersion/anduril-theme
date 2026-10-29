@@ -6,8 +6,12 @@ padding. Build pages as: `Nav → Hero → 1–2 content patterns → Data secti
 
 ## P1 — Hero: `<FullBleedHero>`
 
-One screen (100svh). Full-bleed media (photo or muted looping video) with `--overlay` scrim, or
-pure `--bg` field. Bottom-left anchored composition.
+One screen (100svh). **The hero viewport must be set in material** (AGENTS.md rule 3): pick ONE of
+(a) full-bleed media — photo or muted looping video under `--overlay`, or (b) the **instrument
+field** — layered `--wash` on `--grid`, masked by `--field-mask` so the hairlines catch light near
+the top and dissolve before the content zone. A flat single-color hero is a violation. The
+field carries a second depth layer only if needed (a single faint radial *sheen point* at the
+`--grid` horizon, never glow-colored). Bottom-left anchored composition.
 
     ┌──────────────────────────────────────────────┐
     │ NAV                                          │

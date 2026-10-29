@@ -16,7 +16,10 @@
   --overlay: rgba(1, 1, 1, 0.55);
   --glass: rgba(1, 1, 1, 0.6);
   --wash: radial-gradient(120% 70% at 70% 15%, #1a1a14, transparent);
+  --grid: repeating-linear-gradient(to right, rgba(255,255,255,.10) 0 1px, transparent 1px 96px),
+          repeating-linear-gradient(to bottom, rgba(255,255,255,.10) 0 1px, transparent 1px 96px);
   --sheen: linear-gradient(180deg, #ffffff, #a8a8a4);
+  --field-mask: linear-gradient(to top, transparent, rgba(255,255,255,.35) 70%, #ffffff 100%);
 }
 
 :root[data-theme="light"] {
@@ -33,7 +36,10 @@
   --overlay: rgba(241, 240, 234, 0.55);
   --glass: rgba(241, 240, 234, 0.6);
   --wash: none;
+  --grid: repeating-linear-gradient(to right, rgba(1,1,1,.12) 0 1px, transparent 1px 96px),
+          repeating-linear-gradient(to bottom, rgba(1,1,1,.12) 0 1px, transparent 1px 96px);
   --sheen: linear-gradient(180deg, #010101, #6c6e6b);
+  --field-mask: linear-gradient(to top, transparent, rgba(1,1,1,.3) 70%, #010101 100%);
 }
 
 :root {
@@ -180,6 +186,24 @@ section { padding-block: var(--space-section); }
   gap: var(--gap-grid);
 }
 .hair { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+/* instrument field — hero substrate (P1): wash bg + masked hairline grid on ::before */
+.field {
+  position: relative;
+  background:
+    var(--wash),
+    var(--bg);
+}
+.field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--grid);
+  -webkit-mask-image: var(--field-mask);
+  mask-image: var(--field-mask);
+  pointer-events: none;
+}
+.field > * { position: relative; }   /* content above the grid layer */
 
 /* entrance: fade + rise, once */
 .ent { opacity: 0; transform: translateY(var(--ent-r)); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
