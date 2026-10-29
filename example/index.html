@@ -17,7 +17,9 @@
       transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
       border-bottom: 1px solid transparent;          /* P5 QuietNav */
     }
-    .nav.scrolled { background: color-mix(in srgb, var(--bg) 90%, transparent); border-bottom-color: var(--border); backdrop-filter: blur(8px); }
+    .nav.scrolled {                 /* P5 QuietNav: glass chrome once scrolled (tokens.md §1) */
+      background: none;
+    }
     .nav .links { margin-left: auto; display: flex; gap: var(--space-5); }
     @media (max-width: 720px) { .nav .links { display: none; } }
 
@@ -27,12 +29,13 @@
       display: flex; flex-direction: column; justify-content: flex-end;
       position: relative;
       background:
-        linear-gradient(to top, var(--overlay), transparent 60%),  /* scrim is informational contrast, not decoration */
-        radial-gradient(120% 70% at 70% 20%, #1a1a14 0%, var(--bg) 70%);
+        linear-gradient(to top, var(--overlay), transparent 60%),  /* --media-scrim, for text contrast */
+        var(--wash);                                               /* --wash: subtle depth, dark only */
     }
     .hero .display { max-width: 16ch; }
     .hero .ent { transition-delay: var(--d, 0ms); }
 
+    html, body { scrollbar-width: thin; }
     .split .grid { align-items: start; }       /* P2 SplitSection */
     .split .copy { grid-column: 1 / span 5; }
     .split .media { grid-column: 7 / span 6; }
@@ -165,7 +168,19 @@
     document.querySelectorAll('.ent').forEach(el => io.observe(el));
 
     const nav = document.getElementById('nav');
-    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+    const apply = () => {
+      nav.classList.toggle('scrolled', scrollY > 40);
+      nav.classList.toggle('glass', scrollY > 40);   /* --glass frosted chrome */
+    };
+    addEventListener('scroll', apply, { passive: true });
+
+    // Smooth anchor glide to match the page's inertia (baseline; swap for a
+    // Lenis-class scroller in production builds — tokens.md §4).
+    document.querySelectorAll('a[href^="#"]').forEach(a =>
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      }));
   </script>
 </body>
 </html>

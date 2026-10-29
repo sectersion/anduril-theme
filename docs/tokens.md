@@ -8,37 +8,62 @@ Every value below is a token. Agents must not deviate.
 
 ## 1. Color
 
-### Dark theme (`data-theme="dark"` — default)
+The palette reads as an *instrument*: near-black canvas (dark default), warm paper (light), one
+chartreuse accent, one alert red, and a strictly neutral gray ramp. Cool grays (blues) are forbidden
+in chrome — warmth in the neutrals is what makes it feel engineered, not "SaaS".
+
+### Neutral ramp (shared)
 
 | Token | Value | Role |
 |---|---|---|
-| `--bg` | `#010101` | Page canvas. True near-black, never `#000` for surfaces with type. |
-| `--bg-raised` | `#0c0c0c` | Tables, code blocks, inset panels. |
-| `--fg` | `#ffffff` | Primary text, icons. |
-| `--fg-muted` | `#b0b0a9` | Secondary text (warm gray — never pure `#888`). |
-| `--fg-faint` | `#565654` | Tertiary/labels on dark, inactive. |
-| `--accent` | `#DFF140` | Chartreuse accent. Links, live data, key numbers, focus rings. |
-| `--accent-dim` | `#eff8a0` | Accent tint for large data strokes on dark. |
-| `--alert` | `#FF3535` | Errors, warning badges. |
-| `--border` | `rgba(255,255,255,.14)` | Hairlines, dividers, table rules. |
-| `--overlay` | `rgba(1,1,1,.55)` | Scrim over media for text contrast. |
+| `--n-0` | `#ffffff` | Pure white — text on dark only; large fills use `--bg` instead. |
+| `--n-1` | `#f1f0ea` | Paper canvas (light theme bg). |
+| `--n-2` | `#cacac5` | Hairline-adjacent light gray, disabled text on paper. |
+| `--n-3` | `#b0b0a9` | Warm gray — secondary text on dark, faint on light. |
+| `--n-4` | `#6c6e6b` | Secondary text on paper. |
+| `--n-5` | `#565654` | Tertiary on dark. |
+| `--n-6` | `#2f3234` | Raised dark surface. |
+| `--n-7` | `#010101` | Dark canvas. |
 
-### Light theme (`data-theme="light"`)
+### Semantic mapping
+
+| Token | Dark value | Light value | Role |
+|---|---|---|---|
+| `--bg` | `#010101` | `#f1f0ea` | Page canvas. |
+| `--bg-raised` | `#0c0c0c` | `#ffffff` | Tables, code, inset panels. |
+| `--fg` | `#ffffff` | `#010101` | Primary text. |
+| `--fg-muted` | `#b0b0a9` | `#6c6e6b` | Secondary text. |
+| `--fg-faint` | `#565654` | `#b0b0a9` | Tertiary/labels. |
+| `--border` | `rgba(255,255,255,.14)` | `rgba(1,1,1,.14)` | Hairlines. |
+| `--glass` | `rgba(1,1,1,.6)` + `backdrop-filter: blur(16px) saturate(1.4)` | `rgba(241,240,234,.6)` + same | Nav / floating chrome (Apple-style frosted). |
+| `--overlay` | `rgba(1,1,1,.55)` | `rgba(241,240,234,.55)` | Scrim over media. |
+
+### Accent system
 
 | Token | Value | Role |
 |---|---|---|
-| `--bg` | `#f1f0ea` | Warm paper, never pure white. |
-| `--bg-raised` | `#ffffff` | Tables, panels. |
-| `--fg` | `#010101` | Primary text. |
-| `--fg-muted` | `#6c6e6b` | Secondary text. |
-| `--fg-faint` | `#b0b0a9` | Tertiary. |
-| `--accent` | `#010101` | On paper, the accent *withdraws* — accent usage becomes black underlines/marks. |
-| `--alert` | `#FF3535` | Same. |
-| `--border` | `rgba(1,1,1,.14)` | Hairlines. |
+| `--accent` | `#DFF140` | Chartreuse. Live states, key numbers, links, focus. |
+| `--accent-dim` | `#eff8a0` | Accent tint on dark for large mono numerals. |
+| `--accent-ink` | `#010101` | Text painted over `--accent` fills. |
+| `--alert` | `#FF3535` | Errors/warnings only. |
 
-Rules:
-- Never use more than one accent hue per page. `--alert` only when semantically required.
-- Media (photo/video) is allowed to carry any colors; UI chrome around it stays in the palette.
+### Accent usage ratios (Apple-like discipline)
+
+Per viewport: accent appears **≤ 5 times, ≤ 3 roles**. Roles ranked:
+1. One hero underline/rule, 2. one live-data element (mono numeral), 3. one CTA,
+4. focus rings (not counted). If you find yourself using accent for headings/section labels/
+borders, you've left the system.
+
+### Surfaces: the only permitted "specials"
+
+| Token | Definition | Where |
+|---|---|---|
+| `--glass` | 60% bg + `backdrop-filter: blur(16px) saturate(1.4)` + hairline bottom | Fixed nav, sticky bars. |
+| `--wash` | `radial-gradient(120% 70% at 70% 15%, #1a1a14, transparent)` | Dark-hero background depth (subtle, ≤ 8% perceived lightness). |
+| `--sheen` | `linear-gradient(180deg, #fff, #a8a8a4)` on `background-clip: text` | Display type "metal" moments. Max one per page, light theme only. |
+| `--media-scrim` | `linear-gradient(to top, var(--overlay), transparent 60%)` | Text over photo/video. |
+
+Anything else (colored glows, accent gradients, multi-color washes) is forbidden.
 
 ## 2. Typography
 
@@ -81,22 +106,34 @@ Base-8 scale: `--space-1: 4px; --space-2: 8px; --space-3: 16px; --space-4: 24px;
 Grid: 12-column, but *use asymmetric placements* — text spans 5 cols offset opposite a media
 span of 7. Full symmetry is forbidden between a text block and its media block.
 
-## 4. Motion
+## 4. Motion & scroll
 
-Single easing everywhere: `--ease: cubic-bezier(.215,.62,.34,1)`.
+Single base easing: `--ease: cubic-bezier(0.215, 0.62, 0.34, 1)` (swift-out).
+Secondary delayed-out for entrances: `--ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94)`.
+Springs/overshoot are forbidden — nothing ever bounces.
 
 | Token | Value | Use |
 |---|---|---|
 | `--dur-fast` | `200ms` | Hovers, link underlines. |
 | `--dur` | `450ms` | Element entrance (opacity 0→1 + translateY 16px→0). |
-| `--dur-slow` | `700ms` | Section reveals, large media fades. |
-| `--ent-r` | `16px` | Entrance rise distance. |
+| `--dur-slow` | `900ms` | Section reveals, large media fades, hero settle. |
+| `--ent-r` | `16px` | Entrance rise distance (24px max). |
+
+### Smooth scrolling (Apple-style continuous feel)
+
+- The page must scroll with smooth, weighted inertia — heavy glass-like glide, never free-spinning.
+- **Implementation order**: a JS Lerp/Kinetic-style smooth-scroller (Lenis-class, `lerp ≈ 0.1`,
+  `wheelMultiplier 1`, duration ~1.2s) > CSS `scroll-behavior: smooth` as minimum baseline when
+  JS is disallowed.
+- Anchor clicks must use the same inertia (intercepted through the scroller, not instant jump).
+- Under `prefers-reduced-motion: reduce`: native scrolling entirely, zero inertia, zero reveals.
+- Scroll-runway: content must remain usable when smooth scrolling fails/disabled (no scroll-jacked
+  overflow hacks).
 
 Rules:
 - One entrance animation per element; fire once on IntersectionObserver intersection at ~20%.
-- Reference uses smooth scrolling (Lenis); acceptable, but only behind `prefers-reduced-motion` guards.
 - Progress indicators (thin top load bar in accent color) are the only moving chrome.
-- All motion suppressed under `@media (prefers-reduced-motion: reduce)`.
+- Nav is `position: fixed` with `--glass` treatment and a hairline bottom border once scrolled.
 
 ## 5. Voice (copy tokens)
 

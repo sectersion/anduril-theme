@@ -1,0 +1,17 @@
+/**
+ * Workers Static Assets — no build step, serves ./example directly.
+ * Deploy: npx wrangler deploy   (requires `npx wrangler login` first)
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "anduril-theme",
+  "compatibility_date": "2026-10-29",
+  // Serve example/ (index.html + tokens.css) at the zone root:
+  "assets": {
+    "directory": "./example",
+    // Worker-free: pure static serving, default index.html resolution
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "preview_urls": false
+}

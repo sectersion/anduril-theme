@@ -29,12 +29,16 @@ Resolution order when guidance seems ambiguous or conflicting:
    feels empty, that is correct. Do not fill it with decoration — fewer, larger elements.
 4. **One idea per section.** A section states one claim in one headline, optionally with one
    supporting block (image, table, or paragraph group). Never combine three pitches in one band.
-5. **No decoration without information.** No gradients, glows, drop shadows, rounded cards with
-   soft borders, or stock illustration. Borders are hairlines (`--border`), corners are square or
-   barely rounded (`--radius: 0–2px`). Shadows are forbidden except on frosted overlays.
-6. **Motion is quiet.** Only the defined transitions in `docs/tokens.md` (fade + 16px rise,
-   progress bars, hover states). Durations 300–700ms, single easing `--ease`. Nothing bounces,
-   nothing parallax-jitters, no autoplaying sound.
+5. **No decoration without information.** No soft rounded cards with drop shadows, no stock
+   illustration, no random gradients. The only permitted "surface treatments" come from tokens:
+   hairline borders (`--border`), frosted glass (`--glass` on the nav), and *deliberate* sheen
+   gradients that imitate how light falls on metal/glass — defined in tokens.md, applied only to
+   display typography or media scrims, never as decorative blobs. Corners are square or barely
+   rounded (`--radius: 0–2px`). Drop shadows are forbidden except on the nav/floating glass layer.
+6. **Motion is quiet and continuous.** Pages scroll smoothly (heavier inertia than native-default;
+   see tokens.md §4), entries are fade + 16–24px rise with a single defined easing, hovers are
+   state-only (nothing moves more than 4px). Durations 300–900ms. Nothing bounces, nothing
+   parallax-jitters, no autoplaying sound.
 7. **Typography carries hierarchy.** Bigger/lighter for display, smaller/denser for body,
    uppercase micro-labels for wayfinding. Never use color or size alone when weight + tracking can
    do it; never use more than 4 text sizes in one viewport.
