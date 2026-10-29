@@ -152,3 +152,16 @@ Top-of-page block on all detail pages: eyebrow `.label` naming its homepage sect
 Systems"), `--type-h1` title, lead. Below the headline, a horizontal trail of section links
 (01 02 03, current one `--fg`, others `--fg-faint`, hairline above and below) — wayfinding
 between sibling detail pages without a back-button.
+
+## P17 — `<ProductDetail>` (evidence.md §5)
+The hardware detail page. Fix order: **Header** (display title + one CTA, no paragraph above the
+fold) → **Variants** (2–5 cards: name, characteristic label/value rows in mono values, CTA
+bottom-right) → **Qualities** (one list of capability statements, hairline apart) → optional
+SpecSheet (P4) → closing band. Variant cards: `--bg-raised` field, NO border — raised *value* is
+the separator. Values with heavy tracking tension use the `.data` role lowercase.
+
+## P18 — `<ThemeInvert>` (evidence.md §6)
+A whole section that flips to the opposite palette (use for long-form/wordy artifacts inside a
+dark page). Add `.theme-invert` on the section; it re-maps `--bg`/`--fg` locally. Maximum one per
+page, minimum 60svh, always ends with a regular section — never adjacent to another invert or the
+closing band. (All values stay tokens — the flip is re-mapping, not new colors.)

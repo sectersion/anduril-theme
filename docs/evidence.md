@@ -42,3 +42,19 @@ Distribution: > 50% viewport height is media; text blocks never exceed ~45% of a
 All imagery/video/3D comes from their CDN (Sanity + local assets) — **never assumed**. When
 rebuilding: licensed media, generated footage, or the instrument field. Copy/imagery from the
 reference site is not used; only structural facts above are.
+
+## 5. Product detail pages (P6 capture, /steelfin, 2026-10-29)
+
+Slice anatomy: `ProductHeaderSlice` (display title + CTA) → `ProductVariationsSlice`
+(variant cards: characteristic container = label + value, CTA pinned bottom-right of card) →
+`ProductQualitiesSlice` (single qualities list). Long-form specs load client-side (Sanity CMS);
+the SSG shell ships the skeleton only — worth copying: strict slice registry, CMS-shaped sections.
+
+## 6. Micro-features observed
+
+| Mechanism | Behavior | Spaceframe stance |
+|---|---|---|
+| `.redacted` value treatment | classified-look **streamed text**: light-styled value characters with tightened tracking (`-.05em` to `-.1em`) | Wonderful for live/slowly-revealing data (mission telemetry, counters). **Banned for static content** — fake-redacting marketing copy is role-play slop. |
+| `.Roller` odometer | digit-by-digit roller odometer (6-digit) with scale multiplier | Load once as a live counter for flight hours/stats in `<StatRow>`; number changes matter, not the roller |
+| `.theme-light` blocks | whole sections flip palette on a dark page (their docs/book bands) | Use `.theme-invert` section wrappers only for printable/long-form artifacts — ≤ 1 per page |
+| `--theme-color-background` | the meta theme-color flips (`#000` in light UI, `#fff` in dark UI context) | Per-theme `meta theme-color` in generated pages |

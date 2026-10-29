@@ -7,7 +7,7 @@ When building or reviewing web pages in this repository, read and comply with:
 
 1. `AGENTS.md` — hard rules (highest priority)
 2. `docs/tokens.md` — design tokens (every exact value)
-3. `docs/patterns.md` — 16 layout patterns + site architecture
+3. `docs/patterns.md` — 18 layout patterns + site architecture
 4. `docs/evidence.md` — REA-observed reference behavior behind the patterns (read this when a
    pattern's intent is unclear; it explains what each pattern abstracts)
 5. `docs/prompts.md` — recipe phrasings for common asks
