@@ -1,0 +1,108 @@
+<!doctype html>
+<!-- specs.html — Detail page archetype P11 Spec sheet + application (section 03) -->
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Specifications — Atlas Dynamics</title>
+  <meta name="theme-color" content="#010101">
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    html, body { scrollbar-width: thin; }
+    .nav { position: fixed; inset-inline: 0; top: 0; z-index: 10; display: flex; align-items: center;
+      gap: var(--space-7); height: var(--space-7); padding-inline: var(--gutter); }
+    .nav .links { margin-left: auto; display: flex; gap: var(--space-5); }
+    @media (max-width: 720px) { .nav .links { display: none; } }
+    .detail-header { padding: var(--space-9) var(--gutter) var(--space-6); }
+    .trail { display: flex; gap: var(--space-5); border-block: 1px solid var(--border);
+      padding-block: var(--space-3); margin-top: var(--space-6); }
+    .specs { width: 100%; border-collapse: collapse; }   /* P4 SpecTable */
+    .specs td { padding: var(--space-3) 0; border-bottom: 1px solid var(--border); vertical-align: baseline; }
+    .specs td:first-child { font-size: var(--type-label); letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-muted); width: 30%; }
+    .specs td:last-child { font-family: var(--font-mono); }
+    .prose { max-width: var(--measure); }
+    section { padding-block: var(--space-7); }
+    .next { padding-inline: var(--gutter); }
+    footer { border-top: 1px solid var(--border); padding: var(--space-6) var(--gutter);
+      display: flex; flex-wrap: wrap; gap: var(--space-6); }
+    footer .legal { width: 100%; color: var(--fg-faint); }
+  </style>
+</head>
+<body>
+  <header class="nav glass">
+    <a href="index.html" class="label" style="color: var(--fg)">Atlas Dynamics</a>
+    <nav class="links" aria-label="Primary">
+      <a class="link muted label" href="systems.html">Systems</a>
+      <a class="link muted label" href="reliability.html">Reliability</a>
+      <a class="link label" href="specs.html" aria-current="page">Specs</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="detail-header">   <!-- P13 -->
+      <p class="label ent">03 — Specifications</p>
+      <h1 class="ent" style="margin-block: var(--space-4); max-width: 12ch;">Model A-1.</h1>
+      <p class="lead muted ent" style="--d: 120ms">A 19 kg autonomous long-endurance vehicle for contested airspace.</p>
+      <nav class="trail label" aria-label="Sections">
+        <a class="link" style="color: var(--fg-faint)" href="systems.html">01 Systems</a>
+        <a class="link" style="color: var(--fg-faint)" href="reliability.html">02 Reliability</a>
+        <span style="color: var(--fg)">03 Specs</span>
+      </nav>
+    </header>
+
+    <section>
+      <div class="container">
+        <table class="specs ent">   <!-- P4 SpecTable, full 9-row sheet -->
+          <tbody>
+            <tr><td>Length</td><td>2.9 m</td></tr>
+            <tr><td>Wingspan</td><td>3.4 m</td></tr>
+            <tr><td>MTOW</td><td>19 kg</td></tr>
+            <tr><td>Payload</td><td>4.8 kg</td></tr>
+            <tr><td>Cruise</td><td>95 kt</td></tr>
+            <tr><td>Endurance</td><td>24 hr</td></tr>
+            <tr><td>Ceiling</td><td>40,000 ft</td></tr>
+            <tr><td>Data link</td><td>Mesh, 150 km</td></tr>
+            <tr><td>Positioning</td><td>GNSS-denied navigation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="container">
+      <article class="prose ent">   <!-- application prose -->
+        <h2>Where A-1 is used</h2>
+        <p class="lead muted">Long-endurance overwatch for maritime corridors and land borders:
+        persistent sensing with a 4.8 kg multi-mission payload bay, launching from rail ramps on
+        vessels or trailer rails on land.</p>
+        <p>Because airframes are priced to be lost, attrition is part of the operating concept —
+        recovery is desired, never required. A single launch crew can cycle 12 airframes per day.</p>
+      </article>
+    </section>
+
+    <section class="next">   <!-- P7 loop closing: back to the site index -->
+      <hr class="hair">
+      <h2 class="ent" style="margin-block: var(--space-6); max-width: 18ch">Built for the fleet of the next decade.</h2>
+      <div style="display: flex; gap: var(--space-4)">
+        <a class="btn btn--accent ent" href="mailto:hello@example.com">Contact →</a>
+        <a class="btn ent" href="index.html" style="--d: 80ms">Back to overview</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="label" style="color: var(--fg)">Atlas Dynamics</p>
+    <nav class="links" aria-label="Footer" style="display: flex; gap: var(--space-5)">
+      <a class="link muted label" href="index.html">Home</a>
+      <a class="link muted label" href="systems.html">Systems</a>
+    </nav>
+    <p class="legal label">© 2026 Atlas Dynamics — Illustrative demo content</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.2 });
+    document.querySelectorAll('.ent').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

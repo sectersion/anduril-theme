@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- systems.html — Detail page archetype P9 Article (section 01 trailer target) -->
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Systems — Atlas Dynamics</title>
+  <meta name="theme-color" content="#010101">
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    html, body { scrollbar-width: thin; }
+    .nav { position: fixed; inset-inline: 0; top: 0; z-index: 10; display: flex; align-items: center;
+      gap: var(--space-7); height: var(--space-7); padding-inline: var(--gutter); }
+    .nav .links { margin-left: auto; display: flex; gap: var(--space-5); }
+    @media (max-width: 720px) { .nav .links { display: none; } }
+    .detail-header { padding: var(--space-9) var(--gutter) var(--space-6); }
+    .trail { display: flex; gap: var(--space-5); border-block: 1px solid var(--border);
+      padding-block: var(--space-3); margin-top: var(--space-6); }
+    .prose { max-width: var(--measure); }
+    .prose p, .prose h2 { margin-block: var(--space-4); }
+    .media img { width: 100%; }
+    section { padding-block: var(--space-7); }
+    .next { text-align: left; }
+    footer { border-top: 1px solid var(--border); padding: var(--space-6) var(--gutter);
+      display: flex; flex-wrap: wrap; gap: var(--space-6); }
+    footer .legal { width: 100%; color: var(--fg-faint); }
+  </style>
+</head>
+<body>
+  <header class="nav glass">
+    <a href="index.html" class="label" style="color: var(--fg)">Atlas Dynamics</a>
+    <nav class="links" aria-label="Primary">
+      <a class="link label" href="systems.html" aria-current="page">Systems</a>
+      <a class="link muted label" href="reliability.html">Reliability</a>
+      <a class="link muted label" href="specs.html">Specs</a>
+    </nav>
+  </header>
+
+  <main>
+    <header class="detail-header">   <!-- P13 DetailHeader + section trail -->
+      <p class="label ent">01 — Systems</p>
+      <h1 class="ent" style="margin-block: var(--space-4); max-width: 14ch;">Every sensor. One picture.</h1>
+      <p class="lead muted ent" style="--d: 120ms">One operating picture, fused on board, shared at the edge.</p>
+      <nav class="trail label" aria-label="Sections">
+        <span style="color: var(--fg)">01 Systems</span>
+        <a class="link" style="color: var(--fg-faint)" href="reliability.html">02 Reliability</a>
+        <a class="link" style="color: var(--fg-faint)" href="specs.html">03 Specs</a>
+      </nav>
+    </header>
+
+    <!-- P6 ImageBreak divider between prose blocks -->
+    <section class="container ent">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80" alt="Global sensor mesh visualization at night" loading="lazy"
+           style="border: 1px solid var(--border)">
+      <p class="label" style="margin-top: var(--space-3)">Figure 01 — Fleet mesh, live view</p>
+    </section>
+
+    <article class="container prose ent">   <!-- P9 Article -->
+      <h2>The fusion problem</h2>
+      <p class="lead muted">Combined air and ground operations generate more data than any operator
+      can triage. Atlas fuses video, RF, prior maps, and weather at 60Hz on board each vehicle —
+      no ground processing loop, no stitching artifacts, no single point of failure.</p>
+      <p>Every platform runs the same perception core: a single model family, a single set of
+      interfaces. Whether it flies for 24 hours or drives for 8, the picture delivered to the
+      network is identical in schema and semantics.</p>
+      <h2>Fleet consensus</h2>
+      <p>Platforms negotiate tasking locally when the link degrades. A vehicle that loses its uplink
+      continues its mission and rejoins the picture when it returns. Operators command intent, not
+      waypoints.</p>
+    </article>
+
+    <section class="next container">   <!-- P7 ClosingBand -->
+      <hr class="hair">
+      <h2 class="ent" style="margin-block: var(--space-6); max-width: 16ch">Next: how the fleet is proven before it flies.</h2>
+      <a class="btn ent" href="reliability.html" style="--d: 120ms">Reliability →</a>
+    </section>
+  </main>
+
+  <footer>
+    <p class="label" style="color: var(--fg)">Atlas Dynamics</p>
+    <nav class="links" aria-label="Footer" style="display: flex; gap: var(--space-5)">
+      <a class="link muted label" href="index.html">Home</a>
+      <a class="link muted label" href="reliability.html">Reliability</a>
+    </nav>
+    <p class="legal label">© 2026 Atlas Dynamics — Illustrative demo content</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.2 });
+    document.querySelectorAll('.ent').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

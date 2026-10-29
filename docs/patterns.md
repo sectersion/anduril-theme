@@ -103,3 +103,29 @@ bottom hairline. Total height modest — the footer is the quietest block on the
 - Carousel/slider testimonials. Use one quote block, large `--type-h2`, hairline above.
 - Stock smiley-people photos. Use hardware, environments, sensors, data.
  - Decorative divider imagery (wave/curve SVG fillers). Dividers are hairlines or open space.
+
+## Site architecture (AGENTS.md rule 11)
+
+Homepage is an INDEX: hero + 3–4 section trailers (01/02/03 numbered labels matching detail
+pages) + closing band. Each trailer's only job is to route you to its detail page.
+
+### P9 — DetailPage: `<Article>`
+DetailHeader (P13) → full-width `--measure` prose column (lead + 2–3 body paras) → one
+`<ImageBreak>`-caliber media → prose → footer. Ratio: text-most. One link per paragraph block.
+
+### P10 — DetailPage: `<Gallery>`
+DetailHeader → 2–3 full-width media blocks stacked with `--space-9` between, each captioned
+`--type-label`. Negligible text beyond captions. Ends in a 3-stat `<StatRow>`.
+
+### P11 — DetailPage: `<SpecSheet>`
+DetailHeader → large `<SpecTable>` (8–12 rows) → short application prose → CTA band.
+
+### P12 — DetailPage: `<Log>`
+DetailHeader → dated rows (date `--type-data` mono, event sentence), hairline-separated. Reads
+like a mission log. Ends in CTA band.
+
+### P13 — `<DetailHeader>` + section trail
+Top-of-page block on all detail pages: eyebrow `.label` naming its homepage section ("01 —
+Systems"), `--type-h1` title, lead. Below the headline, a horizontal trail of section links
+(01 02 03, current one `--fg`, others `--fg-faint`, hairline above and below) — wayfinding
+between sibling detail pages without a back-button.

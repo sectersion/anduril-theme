@@ -30,11 +30,11 @@ Resolution order when guidance seems ambiguous or conflicting:
 4. **One idea per section.** A section states one claim in one headline, optionally with one
    supporting block (image, table, or paragraph group). Never combine three pitches in one band.
 5. **No decoration without information.** No soft rounded cards with drop shadows, no stock
-   illustration, no random gradients. The only permitted "surface treatments" come from tokens:
-   hairline borders (`--border`), frosted glass (`--glass` on the nav), and *deliberate* sheen
-   gradients that imitate how light falls on metal/glass — defined in tokens.md, applied only to
-   display typography or media scrims, never as decorative blobs. Corners are square or barely
-   rounded (`--radius: 0–2px`). Drop shadows are forbidden except on the nav/floating glass layer.
+   illustration, no *liquid glass / AI-slop glass* (bubbly translucent panes, glossy specular
+   shine, floating sheen blobs). Recession-era Apple *feel* is the target — smoothness, inertia,
+   restraint — never its material effects. Permitted treatments are only: hairline borders,
+   the one frosted nav bar (`--glass`, ≤16px blur), and typography sheen (`--sheen`, one per
+   page). Corners square (`--radius: 0–2px`). No drop shadows anywhere on content.
 6. **Motion is quiet and continuous.** Pages scroll smoothly (heavier inertia than native-default;
    see tokens.md §4), entries are fade + 16–24px rise with a single defined easing, hovers are
    state-only (nothing moves more than 4px). Durations 300–900ms. Nothing bounces, nothing
@@ -49,6 +49,23 @@ Resolution order when guidance seems ambiguous or conflicting:
 10. **Semantic, accessible HTML.** Landmarks (`header/main/footer/nav`), real headings in order,
    alt text, ≥4.5:1 text contrast, visible focus states, keyboard-operable nav. Attachment is not
     an excuse for `<div>` soup.
+
+## Architecture: index + detail pages (50/50)
+
+The site is split across **specialized detail pages** and the **monolithic homepage** — never a
+single page with fake anchor links that scroll nowhere.
+
+- **Homepage = index of the whole site, exactly 3–5 sections.** Each section is a *trailer* for a
+  detail page: one label, one headline (`--type-h1`), a 1–2 sentence lead, ONE supporting element
+  (image, stat row, or mini spec table), and one "Explore →" link to its dedicated page.
+- **Every relation gets a real page.** Any section worth a trailer gets `systems.html`-style
+  detail — real navigation links, real URLs, browser back-button works.
+- **Detail page archetypes** (commit to one per page): Article (P9), Gallery + chronicle (P10),
+  Spec sheet + application (P11), Change/data log (P12).
+- Detail pages share the same tokens/patterns and start with a `<DetailHeader>` (P13): eyebrow
+  label (which section it belongs to), full-width `--type-h1` title, lead paragraph, and an
+  opening hairline. Footer ends with "Continue →" to the next page — the site is a loop, never
+  a cul-de-sac.
 
 ## Aesthetic self-check (run before finishing)
 
