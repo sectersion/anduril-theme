@@ -161,11 +161,9 @@ img, video { display: block; max-width: 100%; height: auto; }
 .btn--accent { border-color: var(--accent); color: var(--accent); }
 .btn--accent:hover, .btn--accent:focus-visible { background: var(--accent); color: var(--accent-ink); }
 
-/* glass — the only sanctioned shadowed/floating surface (nav, sticky bars) */
+/* glass — translucent chrome; deliberately WITHOUT backdrop blur (no liquid-glass sheen) */
 .glass {
   background: var(--glass);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  backdrop-filter: blur(16px) saturate(1.4);
   border-bottom: 1px solid var(--border);
 }
 

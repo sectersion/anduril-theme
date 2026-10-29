@@ -35,7 +35,7 @@ in chrome — warmth in the neutrals is what makes it feel engineered, not "SaaS
 | `--fg-muted` | `#b0b0a9` | `#6c6e6b` | Secondary text. |
 | `--fg-faint` | `#565654` | `#b0b0a9` | Tertiary/labels. |
 | `--border` | `rgba(255,255,255,.14)` | `rgba(1,1,1,.14)` | Hairlines. |
-| `--glass` | `rgba(1,1,1,.6)` + `backdrop-filter: blur(16px) saturate(1.4)` | `rgba(241,240,234,.6)` + same | Nav / floating chrome (Apple-style frosted). |
+| `--glass` | `rgba(1,1,1,.6)` — translucent bg, **no backdrop blur** | `rgba(241,240,234,.6)` | Chrome bars over scrolled content. Substance, not sheen. |
 | `--overlay` | `rgba(1,1,1,.55)` | `rgba(241,240,234,.55)` | Scrim over media. |
 
 ### Accent system
@@ -58,7 +58,7 @@ borders, you've left the system.
 
 | Token | Definition | Where |
 |---|---|---|
-| `--glass` | 60% bg + `backdrop-filter: blur(16px) saturate(1.4)` + hairline bottom | Fixed nav, sticky bars. |
+| `--glass` | 60% translucent bg + hairline bottom, **no blur** | Fixed nav, sticky bars. |
 | `--wash` | `radial-gradient(120% 70% at 70% 15%, #1a1a14, transparent)` | Dark-hero background depth (subtle, ≤ 8% perceived lightness). |
 | `--sheen` | `linear-gradient(180deg, #fff, #a8a8a4)` on `background-clip: text` | Display type "metal" moments. Max one per page, light theme only. |
 | `--media-scrim` | `linear-gradient(to top, var(--overlay), transparent 60%)` | Text over photo/video. |
@@ -121,7 +121,7 @@ Springs/overshoot are forbidden — nothing ever bounces.
 
 ### Smooth scrolling (Apple-style continuous feel)
 
-- The page must scroll with smooth, weighted inertia — heavy glass-like glide, never free-spinning.
+- The page must scroll with smooth, weighted inertia — heavy, weighted glide, never free-spinning.
 - **Implementation order**: a JS Lerp/Kinetic-style smooth-scroller (Lenis-class, `lerp ≈ 0.1`,
   `wheelMultiplier 1`, duration ~1.2s) > CSS `scroll-behavior: smooth` as minimum baseline when
   JS is disallowed.
@@ -133,7 +133,7 @@ Springs/overshoot are forbidden — nothing ever bounces.
 Rules:
 - One entrance animation per element; fire once on IntersectionObserver intersection at ~20%.
 - Progress indicators (thin top load bar in accent color) are the only moving chrome.
-- Nav is `position: fixed` with `--glass` treatment and a hairline bottom border once scrolled.
+- Nav is `position: fixed`; once scrolled it gains a translucent `--glass` bg + hairline bottom border — no blur, no sheen.
 
 ## 5. Voice (copy tokens)
 
