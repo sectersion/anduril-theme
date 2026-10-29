@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atlas Dynamics — Autonomy for unmanned flight</title>
+  <meta name="description" content="Atlas Dynamics builds autonomy software and sensing systems for unmanned aerial vehicles.">
+  <meta name="theme-color" content="#010101">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="label" style="color: var(--fg)">Atlas Dynamics</a>
+    <nav class="links" aria-label="Primary">
+      <a class="link muted label" href="#systems">Systems</a>
+      <a class="link muted label" href="#performance">Performance</a>
+      <a class="link muted label" href="#specifications">Specifications</a>
+      <a class="link label" href="#contact" style="border-left: 1px solid var(--border); padding-left: var(--space-5)">Contact →</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- P1: one claim, one viewport. -->
+    <section class="hero container">
+      <p class="label ent">Autonomy software · Sensing systems · UAV</p>
+      <h1 class="display ent" style="--d: 120ms">Software that flies<br>without a pilot.</h1>
+      <hr class="rule ent" style="--d: 200ms">
+      <p class="lead muted ent" style="--d: 280ms; max-width: 52ch">
+        Atlas Dynamics builds onboard autonomy and full-spectrum sensing for
+        unmanned aerial vehicles — certification-grade software, deterministic
+        control, and a sensing stack that lands one picture to every operator.
+      </p>
+      <span class="cue" aria-hidden="true"></span>
+    </section>
+
+    <!-- P2: systems overview, media right -->
+    <section class="split" id="systems">
+      <div class="grid container">
+        <div class="copy ent">
+          <p class="label">01 — Systems</p>
+          <h2>One stack, from sensor to decision.</h2>
+          <p class="lead muted">Atlas autonomy runs entirely onboard. Perception, path planning,
+          and flight control execute on the vehicle at 200 Hz; nothing in the loop waits
+          for a ground server. The sensing package fuses electro-optical, infrared,
+          and radar feeds into a single terrain model, refreshed at 60 Hz.</p>
+        </div>
+        <div class="media ent" style="--d: 150ms">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80"
+            alt="Sensor network data visualization over earth at night" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- P3: statistics -->
+    <section id="performance">
+      <div class="container">
+        <p class="label ent">02 — Performance</p>
+        <h1 class="ent" style="margin-block: var(--space-4); max-width: 16ch">Measured in flight hours, not claims.</h1>
+        <div class="stats ent" style="--d: 120ms">
+          <div><p class="num">24<small>hr</small></p><p class="label cap">Endurance</p></div>
+          <div><p class="num">40<small>k ft</small></p><p class="label cap">Ceiling</p></div>
+          <div><p class="num">120<small>k+</small></p><p class="label cap">Autonomous flight hours</p></div>
+          <div><p class="num">99.7<small>%</small></p><p class="label cap">Mission completion rate</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- P2 variant, media left: sensing payload detail -->
+    <section class="split media-left">
+      <div class="grid container">
+        <div class="ent">
+          <p class="label">02 — Sensing</p>
+          <h2>Every aperture, fused.</h2>
+          <p class="lead muted">The S-2 payload head carries 4 sensor apertures behind one
+          window. Target detection below 0.1° resolution, tracked across sensors without
+          hand-off latency. Geolocalization runs to 3 m CEP at 40,000 ft.</p>
+          <a class="explore muted" href="#specifications"><span>Read the payload spec</span><span class="arrow">→</span></a>
+        </div>
+        <div class="media ent" style="--d: 150ms">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&q=80"
+            alt="Fixed-wing unmanned aircraft in flight above terrain" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- P4: SpecTable -->
+    <section id="specifications">
+      <div class="container">
+        <p class="label ent">03 — Specifications</p>
+        <h1 class="ent" style="margin-block: var(--space-4); max-width: 14ch">S-2 flight and payload specifications.</h1>
+        <table class="spec-table ent" style="--d: 120ms">
+          <thead>
+            <tr><th scope="col">Field</th><th scope="col">Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">MTOW</th><td>1,814 kg</td></tr>
+            <tr><th scope="row">Cruise speed</th><td>120 kt</td></tr>
+            <tr><th scope="row">Endurance</th><td>24 hr</td></tr>
+            <tr><th scope="row">Service ceiling</th><td>40,000 ft</td></tr>
+            <tr><th scope="row">Control latency</th><td>5 ms onboard, 200 Hz</td></tr>
+            <tr><th scope="row">Sensor refresh</th><td>60 Hz fused</td></tr>
+            <tr><th scope="row">Targeting accuracy</th><td>3 m CEP</td></tr>
+            <tr><th scope="row">Data link</th><td>Encrypted, anti-jam, mesh</td></tr>
+            <tr><th scope="row">GNSS-denied nav</th><td>Yes</td></tr>
+            <tr><th scope="row">Loss of link</th><td>Automated return-to-base</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- P7 ClosingBand -->
+    <section class="closing container" id="contact">
+      <hr class="hair">
+      <h1 class="ent" style="margin-block: var(--space-6); max-width: 14ch">Bring mission requirements. We'll bring numbers.</h1>
+      <a class="btn btn--accent ent" href="mailto:contact@atlasdynamics.com">Contact →</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="label" style="color: var(--fg)">Atlas Dynamics</p>
+    <nav class="links" aria-label="Footer">
+      <a class="link muted label" href="#systems">Systems</a>
+      <a class="link muted label" href="#performance">Performance</a>
+      <a class="link muted label" href="#specifications">Specifications</a>
+      <a class="link muted label" href="#contact">Contact</a>
+    </nav>
+    <p class="legal label">© 2026 Atlas Dynamics — Unmanned aerial autonomy</p>
+  </footer>
+
+  <script>
+    // Quiet motion only: IntersectionObserver reveals, once (tokens.md §4).
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.2 });
+    document.querySelectorAll('.ent').forEach(el => io.observe(el));
+
+    // Smooth anchor glide (baseline CSS-smooth; Lenis-class in production).
+    document.querySelectorAll('a[href^="#"]').forEach(a =>
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      }));
+
+    const nav = document.getElementById('nav');
+    const apply = () => nav.classList.toggle('scrolled', scrollY > 40);
+    addEventListener('scroll', apply, { passive: true });
+  </script>
+</body>
+</html>

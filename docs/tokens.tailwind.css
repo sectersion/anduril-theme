@@ -1,0 +1,63 @@
+/* tokens.tailwind.css — Spaceframe tokens as Tailwind v4 @theme.
+   Import after tokens, or copy into your global stylesheet:
+     @import "tailwindcss";
+     @import "tokens.tailwind.css";
+   Then use e.g. bg-canvas, text-fg-muted, border-hair, font-sans, text-display. */
+
+@theme {
+  /* neutrals (warm — cool grays forbidden, docs/tokens.md §1) */
+  --color-n-0: #ffffff;
+  --color-n-1: #f1f0ea;
+  --color-n-2: #cacac5;
+  --color-n-3: #b0b0a9;
+  --color-n-4: #6c6e6b;
+  --color-n-5: #565654;
+  --color-n-6: #2f3234;
+  --color-n-7: #010101;
+
+  /* accent system */
+  --color-accent: #dff140;
+  --color-accent-dim: #eff8a0;
+  --color-accent-ink: #010101;
+  --color-alert: #ff3535;
+
+  /* semantic aliases for dark default */
+  --color-canvas: var(--color-n-7);
+  --color-surface: #0c0c0c;
+  --color-fg: #ffffff;
+  --color-fg-muted: var(--color-n-3);
+  --color-fg-faint: var(--color-n-5);
+  --color-hair: rgb(255 255 255 / 0.14);
+
+  /* type */
+  --font-sans: "Helvetica Now Display", "Neue Haas Grotesk", Inter, Helvetica, Arial, sans-serif;
+  --font-mono: "Berkeley Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --text-display: 14rem;
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.04em;
+  --text-h1: 4rem;
+  --text-h1--line-height: 1.02;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: 2rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.02em;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.5;
+  --text-lead--letter-spacing: -0.015em;
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.55;
+  --text-body--letter-spacing: -0.011em;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.3;
+
+  /* spacing scale is Tailwind-native (4/8); section padding utility: py-space-section */
+  --spacing-section: clamp(96px, 14vw, 192px);
+  --spacing-gutter: clamp(24px, 6vw, 96px);
+  --radius-hair: 2px;
+
+  /* motion */
+  --ease-spaceframe: cubic-bezier(0.215, 0.62, 0.34, 1);
+  --ease-spaceframe-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --dur-ent: 450ms;
+  --dur-reveal: 900ms;
+}

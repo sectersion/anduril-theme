@@ -1,0 +1,36 @@
+name: screenshots
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Install playwright chromium
+        run: npx -y playwright install --with-deps chromium
+      - name: Serve example/
+        run: nohup python3 -m http.server 8080 --directory example &
+      - name: Capture all pages (light + dark)
+        run: |
+          mkdir -p shots
+          for t in dark light; do
+            sed -i "s/data-theme=\"\(dark\|light\)\"/data-theme=\"$t\"/" example/*.html
+            for p in index systems reliability specs 404; do
+              npx -y playwright screenshot \
+                --viewport-size=1440,900 --full-page --wait-for-timeout=2500 \
+                "http://localhost:8080/$p.html" "shots/$t-$p.png"
+            done
+            git checkout -- example/
+          done
+      - name: Restore live theme before upload
+        run: git checkout -- example/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: page-screenshots
+          path: shots/

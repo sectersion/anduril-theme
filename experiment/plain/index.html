@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Atlas Dynamics builds autonomy software and sensing systems for unmanned aerial vehicles.">
+<title>Atlas Dynamics — Autonomy and Sensing for Unmanned Aerial Systems</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#">ATLAS&nbsp;DYNAMICS</a>
+    <div class="nav-links">
+      <a href="#systems">Systems</a>
+      <a href="#performance">Performance</a>
+      <a href="#specifications">Specifications</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Autonomy software · Sensing systems</p>
+    <h1 id="hero-title">Machines that fly the mission without a hand on the stick.</h1>
+    <p class="lead">Atlas Dynamics develops onboard autonomy and fused sensing for unmanned aerial vehicles. Our software plans, navigates, and adapts in GPS-denied, comms-degraded environments. Our sensors see through weather, at night, at range.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#systems">Explore the stack</a>
+      <a class="btn btn-ghost" href="#specifications">Read specifications</a>
+    </div>
+    <dl class="hero-facts">
+      <div><dt>Onboard compute</dt><dd>45 TOPS, sealed, 190 g</dd></div>
+      <div><dt>Nav accuracy</dt><dd>&lt; 0.4 % CEP, GPS-denied</dd></div>
+      <div><dt>Flight-hours logged</dt><dd>212,600+</dd></div>
+    </dl>
+  </section>
+
+  <!-- SYSTEMS OVERVIEW -->
+  <section id="systems" class="section" aria-labelledby="systems-title">
+    <div class="section-head">
+      <p class="eyebrow">Systems</p>
+      <h2 id="systems-title">One stack. Three layers. Every aircraft.</h2>
+      <p class="lead">The Atlas autonomy stack is modular by layer and integrated by design. Each layer runs onboard, fails independently, and degrades gracefully.</p>
+    </div>
+
+    <div class="systems-grid">
+      <article class="system-card">
+        <p class="layer-no">01</p>
+        <h3>Axis — Autonomy Core</h3>
+        <p>Full-stack flight autonomy: perception, localization, path planning, and adaptive control. Runs in a deterministic loop at 200 Hz on the vehicle, with zero dependence on external connectivity.</p>
+        <ul class="system-points">
+          <li>GPS-denied visual-inertial odometry</li>
+          <li>Mission planning to 400 waypoints, re-planned in 90 ms</li>
+          <li>Certifiable failure modes, human-takeover &lt; 300 ms</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <p class="layer-no">02</p>
+        <h3>Vireo — Sensing Suite</h3>
+        <p>A fused payload of EO/IR imaging, 360° radar, and LiDAR in a 1.9 kg gimbal. One data bus, one power feed, one timebase. Every frame timestamped to 1 ms.</p>
+        <ul class="system-points">
+          <li>Detects fixed vehicles at 8.2 km, moving at 5.4 km</li>
+          <li>All-weather tracking through rain and smoke</li>
+          <li>Onboard classification of 1,100 object classes</li>
+        </ul>
+      </article>
+
+      <article class="system-card">
+        <p class="layer-no">03</p>
+        <h3>Nexus — Ground Operator</h3>
+        <p>A single operator console for fleets, not aircraft. Task-level command, live sensor feeds, and health telemetry over low-bandwidth links — including a 2.4 kbps degraded mode.</p>
+        <ul class="system-points">
+          <li>One operator supervises 12 aircraft</li>
+          <li>Open API; integrates with existing C2 systems</li>
+          <li>Full mission replay with sensor-fusion timeline</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- STATISTICS -->
+  <section id="performance" class="section section-dark" aria-labelledby="performance-title">
+    <div class="section-head">
+      <p class="eyebrow">Measured, not claimed</p>
+      <h2 id="performance-title">Field performance across 212,600 flight-hours.</h2>
+    </div>
+    <dl class="stats-grid inner-reset">
+      <div class="stat"><dd>99.7 %</dd><dt>Mission completion rate across 4,900 declared missions</dt></div>
+      <div class="stat"><dd>0.38 %</dd><dt>Median position error after 30 min GPS-denied flight</dt></div>
+      <div class="stat"><dd>41 min</dd><dt>Median detected time from contact to classified track</dt></div>
+      <div class="stat"><dd>−15 °C to +50 °C</dd><dt>Verified operating envelope, sealed enclosures</dt></div>
+      <div class="stat"><dd>0</dd><dt>Connectivity dependencies for core flight autonomy</dt></div>
+      <div class="stat"><dd>2.4 kbps</dd><dt>Minimum link rate at which fleet command remains functional</dt></div>
+    </dl>
+  </section>
+
+  <!-- SPECIFICATIONS -->
+  <section id="specifications" class="section" aria-labelledby="spec-title">
+    <div class="section-head">
+      <p class="eyebrow">Specifications</p>
+      <h2 id="spec-title">Integration envelope.</h2>
+      <p class="lead">Representative values for the core onboard unit and sensing suite. All interfaces documented; integration kits ship with simulators and test harnesses.</p>
+    </div>
+
+    <table class="spec-table">
+      <caption class="sr-only">Technical specifications for Atlas Dynamics onboard autonomy and sensing hardware.</caption>
+      <thead>
+        <tr><th scope="col">Parameter</th><th scope="col">Axis autonomy core</th><th scope="col">Vireo sensing suite</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Mass</th><td>190 g</td><td>1,900 g (gimbaled)</td></tr>
+        <tr><th scope="row">Dimensions</th><td>88 × 88 × 34 mm</td><td>Ø 168 × 210 mm</td></tr>
+        <tr><th scope="row">Compute</th><td>45 TOPS AI, 8-core ARM</td><td>Dedicated fusion processor</td></tr>
+        <tr><th scope="row">Power draw</th><td>8 W typical, 24 W peak</td><td>31 W typical, 64 W peak</td></tr>
+        <tr><th scope="row">Interfaces</th><td>2× GbE, CAN-FD, USB3, PPS</td><td>1× 10 GbE, PPS, RS-422</td></tr>
+        <tr><th scope="row">Control loop</th><td>200 Hz deterministic</td><td>60 Hz fused output</td></tr>
+        <tr><th scope="row">Environmental</th><td>IP67, MIL-STD-810H methods 1–14</td><td>IP66, salt fog qualified</td></tr>
+        <tr><th scope="row">Alignment</th><td>Boot self-calibration, 40 s</td><td>Factory calibrated, field boresight 90 s</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CONTACT CLOSING -->
+  <section id="contact" class="section section-closing" aria-labelledby="contact-title">
+    <p class="eyebrow">Contact</p>
+    <h2 id="contact-title">Bring us your airframe.</h2>
+    <p class="lead">We integrate with existing platforms in 6–10 weeks: flight-qualified software loads, payload mounts, operator training. Diligence packages, interface control documents, and simulator access available on request.</p>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-label">Programs and integration</p>
+        <a href="mailto:programs@atlasdynamics.example">programs@atlasdynamics.example</a>
+      </div>
+      <div>
+        <p class="contact-label">Press and partnerships</p>
+        <a href="mailto:press@atlasdynamics.example">press@atlasdynamics.example</a>
+      </div>
+      <div>
+        <p class="contact-label">Headquarters</p>
+        <p>Building 4, Hangar Row East<br>Berkeley, CA 94710</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <p class="brand">ATLAS&nbsp;DYNAMICS</p>
+    <p class="footer-note">Autonomy software and sensing systems for unmanned aerial vehicles.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#systems">Systems</a>
+      <a href="#performance">Performance</a>
+      <a href="#specifications">Specifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <p class="footer-legal">© 2026 Atlas Dynamics. Figures representative of test and field data.</p>
+</footer>
+
+</body>
+</html>
