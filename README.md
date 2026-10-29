@@ -10,7 +10,8 @@ Imposes a clean, "precision hardware" marketing aesthetic (defense-tech minimali
 |---|---|
 | `AGENTS.md` | Non-negotiable rules, architecture model, aesthetic self-check |
 | `docs/tokens.md` | Every value: colors, type scale, spacing, motion, voice |
-| `docs/patterns.md` | 13 named layout patterns + anti-pattern reject list |
+| `docs/patterns.md` | 16 named layout patterns + architecture + anti-pattern reject list |
+| `docs/evidence.md` | REA/CDP-captured reference evidence behind the patterns |
 | `docs/prompts.md` | Copy-paste recipe phrasings for common agent asks |
 | `docs/walkthrough.md` | End-to-end worked build (the reference tour) |
 | `example/` | The reference site: index + 3 detail pages + 404 (this is what's deployed) |

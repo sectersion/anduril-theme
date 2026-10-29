@@ -108,6 +108,25 @@ bottom hairline. Total height modest — the footer is the quietest block on the
 - Stock smiley-people photos. Use hardware, environments, sensors, data.
  - Decorative divider imagery (wave/curve SVG fillers). Dividers are hairlines or open space.
 
+## P14 — `<ProductCard>` (homepage gallery item; evidence.md §3.3)
+
+The trailer for a product-level detail page. Full-width media photograph, then a caption row:
+title (`.label` in `--fg`), one-line descriptor (`.lead muted`), and a top-anchored arrow
+(`Explore →`-class link). Media may be depressingly static (still frame) or a muted loop; text
+never sits on the image — the caption row is on `--bg` beneath. Height ≈ 70svh; consecutive cards
+are separated only by hairlines, no card borders. Used only on gallery-style index pages.
+
+## P15 — `<MegaNav>` (evidence.md §2)
+Two-pane overlay menu: left column = **domains** (`--type-h2`, light weight), right column =
+**all links revealed at once** for the active domain — never hover-toggled partial menus.
+Keyboard: tab reaches panes in order; Esc closes. Overlay uses `--bg` at 100%, `--dur-slow`
+staggered link entrance; closes to a hairline top nav.
+
+## P16 — `<NewsRow>` (evidence.md §3.5)
+One lead story (image + label + `--type-h2` title + date in `--type-data`) plus a compact index
+list of further headlines with hairlines and dates. **Forbidden to reshape into a card carousel**
+— the pattern is: 1 lead + text-only list. Ends with `All stories →` if more exist.
+
 ## Site architecture (AGENTS.md rule 11)
 
 Homepage is an INDEX: hero + 3–4 section trailers (01/02/03 numbered labels matching detail
